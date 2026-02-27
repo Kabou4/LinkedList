@@ -29,7 +29,15 @@ public class Main {
         list1.delete_back();
         list1.display();
 
+        System.out.println(list1.search(4));
+        System.out.println(list1.search(2000));
+        
+        list1.insert(4, 8);
+        list1.insert(2, 30);
+        list1.display();
 
-
+        list1.remove(30);
+        list1.remove(8);
+        list1.display();
     }
 }

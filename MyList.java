@@ -79,4 +79,58 @@ public class MyList{
         temp.next = null;
         size--;
     }
+
+    //i - boolean search
+    public boolean search(int target){
+        //step 1: go through the nodes
+        Node temp;
+        for(temp = head; temp.next != null; temp = temp.next){
+        //check data
+            if(temp.get_data() == target) return true;
+        }
+
+        //if not found, then return false
+        return false;
+    }
+
+    //j - method that inserts insert_me behind after_me item in the list 
+    public void insert(int after_me, int insert_me){
+
+        for(Node temp = head; temp != null; temp = temp.next){
+    
+            if(temp.get_data() == after_me){
+    
+                Node newNode = new Node(insert_me);
+    
+                newNode.next = temp.next; // connect forward
+                temp.next = newNode;      // connect previous node
+    
+                size++;
+                return;
+            }
+        }
+    }
+    public void remove(int delete_me){
+
+        // case 1: empty list
+        if(head == null) return;
+    
+        // case 2: delete head
+        if(head.get_data() == delete_me){
+            head = head.next;
+            size--;
+            return;
+        }
+    
+        // case 3: delete after head
+        Node temp;
+        for(temp = head; temp.next != null; temp = temp.next){
+    
+            if(temp.next.get_data() == delete_me){
+                temp.next = temp.next.next;
+                size--;
+                return;
+            }
+        }
+    }
 }
